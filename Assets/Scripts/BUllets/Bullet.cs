@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -20,17 +19,14 @@ public class Bullet : MonoBehaviour
             Death();
         }
     }
-
     public void SetSpeed(float speed)
     {
         GetComponent<Rigidbody>().AddForce(transform.forward * speed, ForceMode.VelocityChange);
     }
-
     private void DeathOverTime()
     {
         Destroy(gameObject, lifetime);
     }
-
     private IEnumerator CheckingForSurface()
     {
         while (true)
@@ -51,7 +47,6 @@ public class Bullet : MonoBehaviour
             }
         }
     }
-
     private void Death()
     {
         Debug.Log("Impacted rigid surface");
