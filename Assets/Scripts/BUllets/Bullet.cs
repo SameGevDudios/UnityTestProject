@@ -13,10 +13,6 @@ public class Bullet : MonoBehaviour
         DeathOverTime(); 
         StartCoroutine(CheckingForSurface());
     }
-    private void FixedUpdate()
-    {
-        //Move();
-    }
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Target")
