@@ -5,7 +5,6 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float lifetime;
-    private float bulletSpeed;
     private Vector3 previousFramePosition;
 
     private void Start()
@@ -24,18 +23,12 @@ public class Bullet : MonoBehaviour
 
     public void SetSpeed(float speed)
     {
-        bulletSpeed = speed;
-        GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed, ForceMode.VelocityChange);
+        GetComponent<Rigidbody>().AddForce(transform.forward * speed, ForceMode.VelocityChange);
     }
 
     private void DeathOverTime()
     {
         Destroy(gameObject, lifetime);
-    }
-    
-    private void Move()
-    {
-        transform.Translate(Vector3.forward * bulletSpeed, Space.Self);
     }
 
     private IEnumerator CheckingForSurface()
